@@ -7,6 +7,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import VerifyOtp from "./Pages/VerifyOtp";
 import RequireAuth from "./Components/RequireAuth";
+import { Navigate } from "react-router-dom";
 
 export default function App() {
   return (
