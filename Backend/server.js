@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { connectDB } from "./config/db.js";
+import { connectDB } from "./Config/db.js";
 import userRoutes from "./Routes/userRoutes.js";
 
 const required = ["MONGO_URI", "JWT_SECRET", "BREVO_API_KEY", "SENDER_EMAIL"];
