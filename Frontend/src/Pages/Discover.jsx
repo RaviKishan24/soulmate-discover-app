@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFeed, postSwipe } from "../services/api";
+import { getFeed, postSwipe } from "../Services/api";
 import ProfileCard from "../Components/ProfileCard";
 import EmptyState from "../Components/EmptyState";
 import MatchModal from "../Components/MatchModal";

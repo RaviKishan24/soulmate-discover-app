@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMatches } from "../services/api";
+import { getMatches } from "../Services/api";
 import { Heart, MessageCircle, X, ShieldCheck } from "lucide-react";
 
 export default function Matches() {
