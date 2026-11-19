@@ -37,10 +37,3 @@ To make testing fast and easy, I have provided 3 pre-verified accounts. **You do
 5. **Watch User A's screen:** Within 10 seconds, a Toast Notification will slide in from the right, and a red notification dot will appear on the Navbar. 
 
 ---
-
-## 💻 Local Setup Instructions
-
-### 1. Backend Setup
-```bash
-cd backend
-npm install
