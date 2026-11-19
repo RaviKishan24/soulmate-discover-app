@@ -20,15 +20,6 @@ A mobile-first, fully functional swipe-based discovery application inspired by T
 
 ---
 
-## 🔑 Test Accounts (For Evaluators)
-To make testing fast and easy, I have provided 3 pre-verified accounts. **You do not need to check your email for OTPs.**
-
-| Account Role | Email | Password | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Demo User** | `demo@coy.local` | `demo1234` | Already has 3 pre-loaded matches. Use this to test the Matches page and instant notification popups. |
-| **Test User A** | `usera@test.com` | `test1234` | Use in Window A to test the mutual match flow. |
-| **Test User B** | `userb@test.com` | `test1234` | Use in Window B (Incognito) to trigger the real-time notification for User A. |
-
 ### How to test the Real-Time Mutual Match:
 1. Log in as **User A** in a normal browser window.
 2. Log in as **User B** in an Incognito window.
