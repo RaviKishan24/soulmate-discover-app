@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { Home, Flame, Heart } from "lucide-react";
+import { Home, Flame, Heart, HelpCircleIcon } from "lucide-react";
 
 const mobileLinks = [
   { to: "/", label: "Home", icon: Home },
   { to: "/discover", label: "Discover", icon: Flame },
-  { to: "/matches", label: "Matches", icon: Heart }
+  { to: "/matches", label: "Matches", icon: Heart },
+    { to: "/how-it-works", label: "How it Works",icon:HelpCircleIcon },
 ];
 
 export default function Footer() {

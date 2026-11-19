@@ -7,11 +7,10 @@ import { useNotifications } from "../Contexts/NotificationContext";
 
 export default function Layout({ children }) {
   const location = useLocation();
-  
-  // 1. Get the notification state from the context
+
   const { showToast, latestMatch, setShowToast, clearNotifications } = useNotifications();
 
-  // Hide header/footer on auth pages
+
   const isAuthPage = ["/login", "/register", "/verify-otp"].includes(location.pathname);
 
   return (
@@ -25,7 +24,7 @@ export default function Layout({ children }) {
 
       {!isAuthPage && <Footer />}
 
-      {/* ── GLOBAL MATCH NOTIFICATION TOAST ── */}
+    
       {showToast && latestMatch && (
         <div className="fixed bottom-24 md:bottom-8 right-4 md:right-8 z-[100] animate-in slide-in-from-right-8 fade-in duration-300">
           <div className="bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] p-4 flex items-center gap-4 border border-pink-100 max-w-sm">
