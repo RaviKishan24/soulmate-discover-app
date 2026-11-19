@@ -83,7 +83,7 @@ async function seed() {
   const created = await User.insertMany(profiles);
   console.log(`✨ Created ${created.length} profiles`);
 
-  // ── 3. SEED INCOMING LIKES (First 10 profiles liked the Demo User) ──
+  // ── 3. SEED INCOMING LIKES FOR DEMO USER (First 10 profiles) ──
   const incoming = created.slice(0, 10).map((p) => ({
     fromUser: p._id,
     toUser: demo._id,
@@ -104,13 +104,13 @@ async function seed() {
 
   const preloadedMatches = firstThree.map((p) => ({
     users: [demo._id, p._id],
-    seenBy: [], // Empty so the notification pops up instantly
+    seenBy: [], 
   }));
   await Match.insertMany(preloadedMatches);
   console.log(`❤️ Seeded 3 pre-loaded Matches for the Demo user`);
 
   // ── 5. CREATE 2 TEST ACCOUNTS FOR EVALUATOR ──
-  await User.insertMany([
+  const testUsers = await User.insertMany([
     {
       name: "Test User A",
       email: "usera@test.com",
@@ -134,7 +134,32 @@ async function seed() {
       emailVerified: true,
     }
   ]);
+
+  const userA = testUsers[0];
+  const userB = testUsers[1];
   console.log(`🧑‍🤝‍🧑 Created test accounts: usera@test.com & userb@test.com (Pass: test1234)`);
+
+  // ── 6. SEED RANDOM LIKES FOR TEST USER A & B (20 random profiles like them) ──
+  const shuffled = [...created].sort(() => 0.5 - Math.random());
+  const twentyProfiles = shuffled.slice(0, 20);
+
+  const fakeLikesForA = twentyProfiles.map((p) => ({
+    fromUser: p._id,
+    toUser: userA._id,
+    action: "like",
+  }));
+
+  const fakeLikesForB = twentyProfiles.map((p) => ({
+    fromUser: p._id,
+    toUser: userB._id,
+    action: "like",
+  }));
+
+  await Swipe.insertMany([...fakeLikesForA, ...fakeLikesForB]);
+  console.log(`💌 Seeded 20 incoming likes for User A and User B`);
+  
+  // 👇 NOTE: We are NOT creating a match between A and B here. 
+  // We want them to appear in each other's feeds so the evaluator can test the manual swipe flow!
 
   await mongoose.disconnect();
   console.log("✅ Seed complete");
