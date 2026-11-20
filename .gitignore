@@ -1,3 +1,4 @@
+
 # Dependencies
 node_modules/
 frontend/node_modules/
@@ -5,12 +6,16 @@ backend/node_modules/
 
 # Environment Variables (DO NOT PUSH THESE!)
 .env
+.env.*
+!.env.example
+
 frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
 backend/.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+backend/.env.*
+!backend/.env.example
 
 # Build outputs
 dist/
@@ -18,7 +23,7 @@ build/
 frontend/dist/
 
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 
@@ -29,5 +34,4 @@ Thumbs.db
 .idea/
 
 # Misc
-.DS_Store
 .cache/
